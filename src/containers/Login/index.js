@@ -8,6 +8,8 @@ import TextField from '@material-ui/core/TextField';
 
 import styles from './login.css';
 
+import Axios from 'axios';
+
 export default class Login extends React.Component {
 
     constructor(props) {
@@ -48,7 +50,21 @@ export default class Login extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
+
+        console.log(process.env);
+
+        const credentials = new URLSearchParams();
+        credentials.append('grant_type', 'password');
+        credentials.append('username', this.state.username);
+        credentials.append('password', this.state.password);
+
+        Axios.post(process.env.REACT_APP_API_URL + 'token', credentials)
+            .catch(err => {
+                console.error(err);
+            })
+            .then(response => {
+                console.log(response);
+            });
     }
 
     render() {
