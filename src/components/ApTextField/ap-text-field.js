@@ -19,6 +19,7 @@ export default class ApTextField extends React.Component {
         const { value } = event.event.target;
         this.setState({ value });
         this.props.onValueChanged({
+            target: this.props,
             event,
             value
         });
@@ -38,6 +39,10 @@ export default class ApTextField extends React.Component {
                 </label>
             </div>
         );
+    }
+
+    instance() {
+        return this.state;
     }
 }
 

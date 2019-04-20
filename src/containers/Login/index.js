@@ -20,7 +20,8 @@ export default class Login extends React.Component {
     }
 
     onChange(event) {
-        const { name, value } = event.event.target;
+        const name = event.target.name;
+        const value = event.value;
         this.setState({
             [name]: value
         });
@@ -45,13 +46,14 @@ export default class Login extends React.Component {
                     value={this.state.username} 
                     placeholder="Enter your username"
                     caption="Username"
-                     />
+                    onValueChanged={this.onChange} />
                 <ApTextField
                     name="password"
                     value={this.state.password}
                     placeholder="Enter your password"
                     mode="password"
-                    caption="Password" />
+                    caption="Password"
+                    onValueChanged={this.onChange} />
                 <CheckBox 
                     name="rememberMe"
                     text="Remember Me"
