@@ -1,4 +1,12 @@
 :local(.loginForm) {
-    max-width: 260px;
+    max-width: 400px;
     margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+}
+
+:local(.loginFormTitle) {
+    font-weight: normal;
+    margin: 5px 0;
 }

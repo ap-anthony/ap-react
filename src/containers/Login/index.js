@@ -54,6 +54,7 @@ export default class Login extends React.Component {
     render() {
         return (
             <form onSubmit={this.onSubmit} className={styles.loginForm}>
+                <h2 className={styles.loginFormTitle}>Please log in</h2>
                 <FormControl fullWidth required>
                     <TextField
                         autoFocus={true}
