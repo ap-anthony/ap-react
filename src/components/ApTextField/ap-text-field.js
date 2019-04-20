@@ -1,6 +1,8 @@
 import React from 'react';
 import TextBox from 'devextreme-react/text-box';
 
+import PropTypes from 'prop-types';
+
 export default class ApTextField extends React.Component {
 
     constructor(props) {
@@ -8,14 +10,17 @@ export default class ApTextField extends React.Component {
 
         this.state = {
             value: props.value,
-        }
+        };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e) {
-        this.setState({
-            value: e.event.target.value
+    handleChange(event) {
+        const { value } = event.event.target;
+        this.setState({ value });
+        this.props.onValueChanged({
+            event,
+            value
         });
     }
 
@@ -32,6 +37,18 @@ export default class ApTextField extends React.Component {
                     />
                 </label>
             </div>
-        )
+        );
     }
 }
+
+ApTextField.propTypes = {
+    name: PropTypes.string,
+    value: PropTypes.string,
+    placeholder: PropTypes.string,
+    caption: PropTypes.string,
+    onValueChanged: PropTypes.func
+};
+
+ApTextField.defaultProps = {
+    onValueChanged: (event) => { }
+};
