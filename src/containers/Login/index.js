@@ -1,7 +1,8 @@
 import React from 'react';
 import ApTextField from '../../components/ApTextField/ap-text-field';
-import Button from 'devextreme-react/button';
 import CheckBox from 'devextreme-react/check-box';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 
 export default class Login extends React.Component {
 
@@ -60,8 +61,13 @@ export default class Login extends React.Component {
                     value={this.state.rememberMe}
                     onValueChanged={this.onRememberMeChange} />
                 <Button 
-                    text="Submit"
-                    useSubmitBehavior={true} />
+                    color="primary" 
+                    variant="container" 
+                    disableRipple={true}
+                    type="submit">
+                    Log Me In!
+                    <Icon>exit_to_app</Icon>
+                </Button>
             </form>
         );
     }
