@@ -20,12 +20,10 @@ export default class Login extends React.Component {
     onChange(event) {
         this.setState({
             [name]: event.event.target.value
-        })
+        });
     }
 
-    onSubmit(event) {
-        console.log("Submitting form");
-        console.log(event);
+    onSubmit() {
     }
 
     render() {
@@ -45,6 +43,6 @@ export default class Login extends React.Component {
                     text="Submit"
                     useSubmitBehavior={true} />
             </form>
-        )
+        );
     }
 }
