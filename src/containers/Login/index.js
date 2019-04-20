@@ -1,8 +1,12 @@
 import React from 'react';
-import ApTextField from '../../components/ApTextField/ap-text-field';
 import CheckBox from 'devextreme-react/check-box';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import FormControl from '@material-ui/core/FormControl';
+
+import TextField from '@material-ui/core/TextField';
+
+import styles from './login.css';
 
 export default class Login extends React.Component {
 
@@ -20,9 +24,17 @@ export default class Login extends React.Component {
         this.onRememberMeChange = this.onRememberMeChange.bind(this);
     }
 
+    componentDidMount() {
+        document.body.classList.add('center-full-screen');
+    }
+
+    componentWillUnmount() {
+        document.body.classList.remove('centered-full-screen');
+    }
+
     onChange(event) {
-        const name = event.target.name;
-        const value = event.value;
+        event.persist();
+        const { name, value } = event.target;
         this.setState({
             [name]: value
         });
@@ -41,33 +53,42 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
-                <ApTextField
-                    name="username"
-                    value={this.state.username} 
-                    placeholder="Enter your username"
-                    caption="Username"
-                    onValueChanged={this.onChange} />
-                <ApTextField
-                    name="password"
-                    value={this.state.password}
-                    placeholder="Enter your password"
-                    mode="password"
-                    caption="Password"
-                    onValueChanged={this.onChange} />
-                <CheckBox 
-                    name="rememberMe"
-                    text="Remember Me"
-                    value={this.state.rememberMe}
-                    onValueChanged={this.onRememberMeChange} />
-                <Button 
-                    color="primary" 
-                    variant="container" 
-                    disableRipple={true}
-                    type="submit">
-                    Log Me In!
-                    <Icon>exit_to_app</Icon>
-                </Button>
+            <form onSubmit={this.onSubmit} className={styles.loginForm}>
+                <FormControl fullWidth required>
+                    <TextField
+                        autoFocus={true}
+                        label="Enter your username"
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.onChange}
+                    />
+                </FormControl>
+                <FormControl fullWidth required margin="normal">
+                    <TextField
+                        label="Enter your password"
+                        name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                    />
+                </FormControl>
+                <FormControl fullWidth>
+                    <CheckBox
+                        name="rememberMe"
+                        text="Remember Me"
+                        value={this.state.rememberMe}
+                        onValueChanged={this.onRememberMeChange} />
+                </FormControl>
+                <FormControl margin="normal">
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        disableRipple={true}
+                        type="submit">
+                        Log Me In!
+                        <Icon>exit_to_app</Icon>
+                    </Button>
+                </FormControl>
             </form>
         );
     }
