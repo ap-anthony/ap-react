@@ -63,7 +63,21 @@ export default class Login extends React.Component {
         credentials.append('password', this.state.password);
 
 
-        Axios.post(process.env.REACT_APP_API_URL + 'token', credentials)
+        let request;
+
+        if (process.env.NODE_ENV === 'development' && process.env.REACT_APP_API_KEY) {
+            // testing to mock server
+            request = Axios.post(process.env.REACT_APP_API_URL + 'token', credentials, 
+                {
+                    headers: {
+                        'x-api-key': process.env.REACT_APP_API_KEY
+                    }
+                }
+            );
+        } else {
+            request = Axios.post(process.env.REACT_APP_API_URL + 'token', credentials);
+        }
+        request
             .catch(err => {
                 console.error(err);
             })
