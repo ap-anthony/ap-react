@@ -8,9 +8,11 @@
     "axios-observable": "^1.0.7",
     "devextreme": "^18.2.7",
     "devextreme-react": "^18.2.7",
+    "jwt-decode": "^2.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "rxjs": "^6.4.0"
   },
