@@ -20,8 +20,13 @@ class App extends Component {
             let promise = new Promise((resolve, reject) => {
                 try {
                     this.setState((prev) => {
-                        prev.token = token.access_token;
-                        prev.loggedInUser = jwtDecode(token.access_token);
+                        if (process.env.REACT_APP_OFFLINE === 'true') {
+                            prev.token = token;
+                            prev.loggedInUser = token
+                        } else {
+                            prev.token = token.access_token;
+                            prev.loggedInUser = jwtDecode(token.access_token);
+                        }
                         resolve(prev);
                     });
                 } catch (err) {
@@ -38,7 +43,7 @@ class App extends Component {
         this.state = {
             token: null,
             setToken: this.setToken.bind(this),
-            loggedInUser: null
+            loggedInUser: null,
         };
     }
     render() {
@@ -50,7 +55,6 @@ class App extends Component {
                 </Helmet>
 
                 <Router>
-
                     <TokenContext.Provider value={this.state}>
                         <Route exact path="/" component={Home}></Route>
                         <Route exact path="/login" component={Login}></Route>

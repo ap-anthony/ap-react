@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import CheckBox from 'devextreme-react/check-box';
 import Button from '@material-ui/core/Button';
@@ -35,7 +34,7 @@ export default class Login extends React.Component {
     }
 
     componentWillUnmount() {
-        document.body.classList.remove('centered-full-screen');
+        document.body.classList.remove('center-full-screen');
     }
 
     onChange(event) {
@@ -65,7 +64,7 @@ export default class Login extends React.Component {
 
         let request;
 
-        if (process.env.NODE_ENV === 'development' && process.env.REACT_APP_API_KEY) {
+        if (process.env.NODE_ENV === 'development' && process.env.REACT_APP_API_KEY && process.env.REACT_APP_OFFLINE !== 'true') {
             // testing to mock server
             request = Axios.post(process.env.REACT_APP_API_URL + 'token', credentials, 
                 {
@@ -74,6 +73,17 @@ export default class Login extends React.Component {
                     }
                 }
             );
+        } else if (process.env.NODE_ENV === 'development' && process.env.REACT_APP_OFFLINE === 'true') {
+            console.log(process.env.REACT_APP_OFFLINE)
+            request = new Promise((resolve) => {
+                resolve({
+                    data: {
+                        unique_name: 'Jeffrey Hilts',
+                        username: 'hiltsj',
+                        personId: '2'
+                    }
+                });
+            }) 
         } else {
             request = Axios.post(process.env.REACT_APP_API_URL + 'token', credentials);
         }
