@@ -28,3 +28,36 @@ body.center-full-screen {
     flex-direction: column;
     justify-content: center;
 }
+
+.flex-r {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-c {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding: 4px;
+    transition: transform 0.3s;
+}
+
+.ap-topnav {
+    padding: 4px;
+    transform: translateX(280px);
+    transition: transform 0.3s;
+}
+
+.collapsed .sidebar {
+    transform: translateX(-280px);
+}
+
+.collapsed .ap-topnav {
+    transform: translateX(0);
+}
