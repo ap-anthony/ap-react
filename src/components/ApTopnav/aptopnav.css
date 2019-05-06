@@ -1,0 +1,11 @@
+:local(.contentLeft) {
+    width: auto;
+}
+
+:local(.contentCenter) {
+    flex: 1;
+}
+
+:local(.contentRight) {
+    width: auto;
+}
