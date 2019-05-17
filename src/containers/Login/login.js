@@ -104,53 +104,62 @@ export default class Login extends React.Component {
             });
     }
 
+    renderRedirectToHome() {
+        return <Redirect to="/"></Redirect>;
+    }
+
     render() {
         if (this.state.redirectToHome) {
-            return <Redirect to="/"></Redirect>;
+            return this.renderRedirectToHome();
         }
 
         return (
             <TokenContext.Consumer>
-                {({ token, setToken }) => (
-                    <form onSubmit={(event) => this.onSubmit({ event, setToken })} className={styles.loginForm}>
-                        <h2 className={styles.loginFormTitle}>Please log in</h2>
-                        <FormControl fullWidth required>
-                            <TextField
-                                autoFocus={true}
-                                label="Enter your username"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.onChange}
-                            />
-                        </FormControl>
-                        <FormControl fullWidth required margin="normal">
-                            <TextField
-                                label="Enter your password"
-                                name="password"
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.onChange}
-                            />
-                        </FormControl>
-                        <FormControl fullWidth>
-                            <CheckBox
-                                name="rememberMe"
-                                text="Remember Me"
-                                value={this.state.rememberMe}
-                                onValueChanged={this.onRememberMeChange} />
-                        </FormControl>
-                        <FormControl margin="normal">
-                            <Button
-                                color="primary"
-                                variant="contained"
-                                disableRipple={true}
-                                type="submit">
-                                Log Me In!
-                                <Icon>exit_to_app</Icon>
-                            </Button>
-                        </FormControl>
-                    </form>
-                )}
+                {({ token, setToken, tokenService }) => {
+                    if (tokenService.getDecodedToken()) {
+                        return this.renderRedirectToHome();
+                    }
+                    return (
+                        <form onSubmit={(event) => this.onSubmit({ event, setToken })} className={styles.loginForm}>
+                            <h2 className={styles.loginFormTitle}>Please log in</h2>
+                            <FormControl fullWidth required>
+                                <TextField
+                                    autoFocus={true}
+                                    label="Enter your username"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.onChange}
+                                />
+                            </FormControl>
+                            <FormControl fullWidth required margin="normal">
+                                <TextField
+                                    label="Enter your password"
+                                    name="password"
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                />
+                            </FormControl>
+                            <FormControl fullWidth>
+                                <CheckBox
+                                    name="rememberMe"
+                                    text="Remember Me"
+                                    value={this.state.rememberMe}
+                                    onValueChanged={this.onRememberMeChange} />
+                            </FormControl>
+                            <FormControl margin="normal">
+                                <Button
+                                    color="primary"
+                                    variant="contained"
+                                    disableRipple={true}
+                                    type="submit">
+                                    Log Me In!
+                                    <Icon>exit_to_app</Icon>
+                                </Button>
+                            </FormControl>
+                        </form>
+                    );
+                }}
             </TokenContext.Consumer>
         );
     }

@@ -8,6 +8,7 @@ import TokenContext from './contexts/token';
 
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.compact.css';
+import TokenService from './services/token-service';
 
 var jwtDecode = require('jwt-decode');
 
@@ -22,17 +23,15 @@ class App extends Component {
                     this.setState((prev) => {
                         if (process.env.REACT_APP_OFFLINE === 'true') {
                             prev.token = token;
-                            prev.loggedInUser = token
                         } else {
-                            prev.token = token.access_token;
-                            prev.loggedInUser = jwtDecode(token.access_token);
+                            prev.token = jwtDecode(token.access_token);
                         }
+                        this.state.tokenService.setToken(token.access_token);
                         resolve(prev);
                     });
                 } catch (err) {
                     this.setState((prev) => {
                         prev.token = null;
-                        prev.loggedInUser = null;
                         reject(err);
                     });
                 }
@@ -40,12 +39,19 @@ class App extends Component {
             return promise;
         };
 
+        const tokenService = new TokenService();
+        let token = null;
+        if (tokenService.hasToken()) {
+            token = tokenService.getDecodedToken();
+        }
+
         this.state = {
-            token: null,
+            token,
+            tokenService,
             setToken: this.setToken.bind(this),
-            loggedInUser: null,
         };
     }
+
     render() {
         return (
             <div className="App">

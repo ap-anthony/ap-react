@@ -30,11 +30,10 @@ export default class ApTopnav extends React.Component {
                 <div className={styles.contentCenter}></div>
                 <div className={styles.contentRight}>
                     <TokenContext.Consumer>
-                        { value => {
-                            console.log(value);
+                        { ({token}) => {
                             return (
                                 <div className="user-info">
-                                    {value.loggedInUser.unique_name}
+                                    {token.unique_name}
                                 </div>
                             );
                         }}
