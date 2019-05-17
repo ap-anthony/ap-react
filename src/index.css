@@ -7,10 +7,21 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: hsl(184, 19%, 30%);
+    background-image: url(/60-lines.png);
+    background-repeat: repeat;   
+    /* background-position-x: center;
+    background-position-y: 90px; */
+}
+
+.ap-logo-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     background-image: url(/admpros_engrave.png);
-    background-repeat: no-repeat;   
-    background-position-x: center;
-    background-position-y: 90px;
+    background-repeat: no-repeat;
+    background-position: center 90px;
 }
 
 code {
