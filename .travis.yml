@@ -7,7 +7,7 @@ cache:
 env:
   - SKIP_PREFLIGHT_CHECK=true
 script:
-  - yarn test
+  - yarn test -u
   - yarn build
 on:
   branch: master
