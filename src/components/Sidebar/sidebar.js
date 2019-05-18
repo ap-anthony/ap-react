@@ -78,9 +78,9 @@ export default class Sidebar extends React.Component {
                             <div key={currentKey}>
                                 <SidebarLink>{currentKey}</SidebarLink>
                                 <SidebarDropdown>
-                                    {/* <SidebarDropdownItem>Example Link 1</SidebarDropdownItem>
+                                    <SidebarDropdownItem>Example Link 1</SidebarDropdownItem>
                                     <SidebarDropdownItem>Example Link 2</SidebarDropdownItem>
-                                    <SidebarDropdownItem>Example Link 3</SidebarDropdownItem> */}
+                                    <SidebarDropdownItem>Example Link 3</SidebarDropdownItem>
                                 </SidebarDropdown>
                             </div>
                         );
