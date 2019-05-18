@@ -8,6 +8,7 @@ import TokenContext from './contexts/token';
 
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.compact.css';
+import TokenService from './services/token-service';
 
 var jwtDecode = require('jwt-decode');
 
@@ -20,14 +21,17 @@ class App extends Component {
             let promise = new Promise((resolve, reject) => {
                 try {
                     this.setState((prev) => {
-                        prev.token = token.access_token;
-                        prev.loggedInUser = jwtDecode(token.access_token);
+                        if (process.env.REACT_APP_OFFLINE === 'true') {
+                            prev.token = token;
+                        } else {
+                            prev.token = jwtDecode(token.access_token);
+                        }
+                        this.state.tokenService.setToken(token.access_token);
                         resolve(prev);
                     });
                 } catch (err) {
                     this.setState((prev) => {
                         prev.token = null;
-                        prev.loggedInUser = null;
                         reject(err);
                     });
                 }
@@ -35,12 +39,24 @@ class App extends Component {
             return promise;
         };
 
+        const tokenService = new TokenService();
+
+        if (tokenService.hasExpired()) {
+            tokenService.removeToken();
+        }
+        
+        let token = null;
+        if (tokenService.hasToken()) {
+            token = tokenService.getDecodedToken();
+        }
+
         this.state = {
-            token: null,
+            token,
+            tokenService,
             setToken: this.setToken.bind(this),
-            loggedInUser: null
         };
     }
+
     render() {
         return (
             <div className="App">
@@ -50,7 +66,6 @@ class App extends Component {
                 </Helmet>
 
                 <Router>
-
                     <TokenContext.Provider value={this.state}>
                         <Route exact path="/" component={Home}></Route>
                         <Route exact path="/login" component={Login}></Route>

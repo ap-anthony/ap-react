@@ -7,10 +7,21 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: hsl(184, 19%, 30%);
+    background-image: url(/60-lines.png);
+    background-repeat: repeat;   
+    /* background-position-x: center;
+    background-position-y: 90px; */
+}
+
+.ap-logo-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     background-image: url(/admpros_engrave.png);
-    background-repeat: no-repeat;   
-    background-position-x: center;
-    background-position-y: 90px;
+    background-repeat: no-repeat;
+    background-position: center 90px;
 }
 
 code {
@@ -27,4 +38,37 @@ body.center-full-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.flex-r {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-c {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding: 4px;
+    transition: transform 0.3s;
+}
+
+.ap-topnav {
+    padding: 4px;
+    transform: translateX(280px);
+    transition: transform 0.3s;
+}
+
+.collapsed .sidebar {
+    transform: translateX(-280px);
+}
+
+.collapsed .ap-topnav {
+    transform: translateX(0);
 }
