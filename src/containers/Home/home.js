@@ -4,6 +4,9 @@ import TokenContext from '../../contexts/token';
 import { Redirect } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/sidebar';
 import ApTopnav from '../../components/ApTopnav/aptopnav';
+import Axios from 'axios';
+
+import TokenService from '../../services/token-service';
 
 export default class Home extends React.Component {
 
@@ -12,22 +15,7 @@ export default class Home extends React.Component {
 
         this.state = {
             // This will come from an API call at some point
-            menuLinks:{
-                "My Information": [
-                    {
-                        "menu_id": 138,
-                        "caption": "My Applicant Watch List",
-                        "id": "my-applicant-watch-list",
-                        "icon": null
-                    },
-                    {
-                        "menu_id": 137,
-                        "caption": "Edit Profile Information",
-                        "id": "edit-profile-information",
-                        "icon": null
-                    }
-                ]
-            },
+            menuLinks:{ },
             collapsed: false
         }
 
@@ -41,7 +29,16 @@ export default class Home extends React.Component {
     }
 
     componentDidMount() {
-        
+        const tokenService = new TokenService();
+        Axios.get(process.env.REACT_APP_API_URL + 'api/util/GetMainMenuList', {
+            headers: {
+                'Authorization': `Bearer ${tokenService.getRawToken()}`
+            }
+        }).then(({data}) => {
+            this.setState({
+                menuLinks: data
+            });
+        })
     }
 
     renderMain(token) {
@@ -56,11 +53,11 @@ export default class Home extends React.Component {
     render() {
         return (
             <TokenContext.Consumer>
-                {value => {
-                    if (value.token == null) {
-                        return <Redirect to="/login" />;
+                {({ tokenService }) => {
+                    if (tokenService.validToken()) {
+                        return this.renderMain(tokenService.getDecodedToken());
                     } else {
-                        return this.renderMain(value.token);
+                        return <Redirect to="login" />
                     }
                 }}
             </TokenContext.Consumer>
