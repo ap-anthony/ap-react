@@ -4,6 +4,17 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 
 import styles from './aptopnav.css';
+import styled from 'styled-components';
+import { assets } from '../../theme';
+
+const TopNavContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    background-image: url(${assets.DIAGONAL_LINES_TEX});
+    padding: 4px;
+    transition: transform 0.25s;
+`;
 
 export default class ApTopnav extends React.Component {
     
@@ -19,7 +30,7 @@ export default class ApTopnav extends React.Component {
 
     render() {
         return (
-            <div className='ap-topnav flex-r'>
+            <TopNavContainer>
                 <div className={styles.contentLeft}>
                     <div className="menuToggle">
                         <IconButton aria-label="Toggle Menu" onClick={this.toggleCollapse}>
@@ -39,7 +50,7 @@ export default class ApTopnav extends React.Component {
                         }}
                     </TokenContext.Consumer>
                 </div>
-            </div>
+            </TopNavContainer>
         );
     }
 
