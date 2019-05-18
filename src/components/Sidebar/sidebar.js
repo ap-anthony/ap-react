@@ -6,7 +6,6 @@ export default class Sidebar extends React.Component {
         super(props);
 
         this.state = {
-            menuLinks: props.menuLinks || [],
             collapsed: props.collapsed
         };
     }
@@ -14,7 +13,7 @@ export default class Sidebar extends React.Component {
     render() {
         return (
             <div className="sidebar">
-                {Object.keys(this.state.menuLinks).map((currentKey) => {
+                {Object.keys(this.props.menuLinks).map((currentKey) => {
                     return (
                         <div className="sidebar-link" key={currentKey}>
                             <span className="sidebar-link-text">{currentKey}</span>
