@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AP React
+### React JS Implementation of AP 5 by AdmissionPros 
+
+[![Build Status](https://travis-ci.org/ap-anthony/ap-react.svg?branch=master)](https://travis-ci.org/ap-anthony/ap-react)
 
 ## Available Scripts
 
