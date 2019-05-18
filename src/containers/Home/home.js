@@ -70,7 +70,10 @@ export default class Home extends React.Component {
     }
 
     componentDidMount() {
-        document.getElementsByClassName('ap-logo-overlay')[0].style.zIndex = -1;
+        const logoOverlay = document.getElementsByClassName('ap-logo-overlay')[0];
+        if (logoOverlay) {
+            logoOverlay.style.zIndex = -1;
+        }
 
         const tokenService = new TokenService();
         Axios.get(process.env.REACT_APP_API_URL + 'api/util/GetMainMenuList', {
@@ -85,7 +88,10 @@ export default class Home extends React.Component {
     }
 
     componentWillUnmount() {
-        document.getElementsByClassName('ap-logo-overlay')[0].style.zIndex = 0;
+        const logoOverlay = document.getElementsByClassName('ap-logo-overlay')[0];
+        if (logoOverlay) {
+            logoOverlay.style.zIndex = 0;
+        }
     }
 
     renderMain(token) {

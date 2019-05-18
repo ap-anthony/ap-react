@@ -2,124 +2,267 @@
 
 exports[`Sidebar renders correctly. 1`] = `
 <div
-  className="sidebar"
+  className="sc-bdVaJa jJLaeR"
 >
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Management Consoles
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Visit Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Campus Safety
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Document Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Applicant Missing Items
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Email Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Mailing Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Codes Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Report Tools
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Portal Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       Data Imports & Exports
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       System Management
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
-  <div
-    className="sidebar-link"
-  >
-    <span
-      className="sidebar-link-text"
+  <div>
+    <button
+      className="sc-bwzfXH cHEHDJ"
     >
       AdmissionPros Only
-    </span>
+    </button>
+    <ul
+      className="sc-htpNat bpJQik"
+    >
+      <li>
+        Example Link 1
+      </li>
+      <li>
+        Example Link 2
+      </li>
+      <li>
+        Example Link 3
+      </li>
+    </ul>
   </div>
 </div>
 `;
