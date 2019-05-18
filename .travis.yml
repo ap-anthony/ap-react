@@ -7,7 +7,6 @@ cache:
 env:
   - SKIP_PREFLIGHT_CHECK=true
 script:
-  - yarn install
   - yarn build
 on:
   branch: master
