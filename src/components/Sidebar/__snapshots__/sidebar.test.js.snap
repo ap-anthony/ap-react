@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar renders correctly. 1`] = `
+<div
+  className="sidebar"
+>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Management Consoles
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Visit Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Campus Safety
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Document Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Applicant Missing Items
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Email Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Mailing Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Codes Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Report Tools
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Portal Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      Data Imports & Exports
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      System Management
+    </span>
+  </div>
+  <div
+    className="sidebar-link"
+  >
+    <span
+      className="sidebar-link-text"
+    >
+      AdmissionPros Only
+    </span>
+  </div>
+</div>
+`;
