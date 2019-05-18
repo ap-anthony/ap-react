@@ -40,6 +40,11 @@ class App extends Component {
         };
 
         const tokenService = new TokenService();
+
+        if (tokenService.hasExpired()) {
+            tokenService.removeToken();
+        }
+        
         let token = null;
         if (tokenService.hasToken()) {
             token = tokenService.getDecodedToken();
