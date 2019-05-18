@@ -3,7 +3,6 @@ import CheckBox from 'devextreme-react/check-box';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import FormControl from '@material-ui/core/FormControl';
-
 import TextField from '@material-ui/core/TextField';
 
 import styles from './login.css';
@@ -116,7 +115,7 @@ export default class Login extends React.Component {
         return (
             <TokenContext.Consumer>
                 {({ token, setToken, tokenService }) => {
-                    if (tokenService.getDecodedToken()) {
+                    if (tokenService.validToken()) {
                         return this.renderRedirectToHome();
                     }
                     return (
