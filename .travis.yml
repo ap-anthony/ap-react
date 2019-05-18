@@ -4,6 +4,8 @@ node_js:
 cache:
   directories:
     - node_modules
+env:
+  - SKIP_PREFLIGHT_CHECK=true
 script:
   - yarn install
   - yarn build
