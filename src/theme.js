@@ -12,7 +12,8 @@ export const colors = {
 
 export const assets = {
     DIAGONAL_LINES_TEX: '/60-lines.png',
-    ap_logo_white: '/aplogo.png'
+    ap_logo_white: '/aplogo.png',
+    user: '/user.png'
 };
 
 export const styles = {

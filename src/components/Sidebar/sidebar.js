@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { colors, assets, styles } from '../../theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SidebarDropdown from './sidebar-dropdown';
+import TokenContext from '../../contexts/token';
 
 const Icon = styled.span`
     width: 23px;
@@ -18,11 +19,16 @@ const EndIcon = styled.span`
 const SidebarContainer = styled.div`
     width: 100%;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 `;
 
 const SidebarLinksContainer = styled.div`
     padding: 0 15px;
+    flex: 1;
+    overflow-y: auto;
 `;
 
 const SidebarLink = styled.button`
@@ -38,7 +44,7 @@ const SidebarLink = styled.button`
     cursor: pointer;
     font-size: 16px;
     position: relative;
-    height: 34px;
+    min-height: 34px;
 `;
 
 const SidebarHeader = styled.div`
@@ -66,6 +72,37 @@ const SidebarHeaderTitle = styled.div`
     color: white;
 `;
 
+const SidebarProfile = styled.div`
+    width: 100%;
+    height: 100px;
+    display: flex;
+`;
+
+const ProfileImage = styled.div`
+    width: 98px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+`;
+
+const ProfileWelcome = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+const ProfileWelcomeGreeting = styled.div`
+    color: white;
+    font-size: 16px;
+`;
+
+const ProfileWelcomeName = styled.div`
+    color: white;
+    font-size: 20px;
+`;
+
 const SidebarDropdownItemLink = styled.button`
     width: 100%;
     color: ${colors.gray5};
@@ -90,6 +127,34 @@ const SidebarDropdownItemLink = styled.button`
         background-color: ${colors.teal3};
         border-radius: 50%;
     }
+`;
+
+const CircleImage = styled.div`
+    width: 78px;
+    height: 78px;
+    background: url(${assets.user});
+    border-radius: 50%;
+    border: 4px solid white;
+    background-position: center center;
+    background-size: contain;
+    margin: 0 auto;
+`;
+
+const SidebarFooter = styled.div`
+    display: flex;
+`;
+
+const SidebarFooterButton = styled.div`
+    flex: 1;
+    background-color: ${colors.teal2};
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    height: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 function SidebarDropdownItem(props) {
@@ -131,6 +196,20 @@ export default class Sidebar extends React.Component {
                     <SidebarHeaderLogo></SidebarHeaderLogo>
                     <SidebarHeaderTitle>AdmissionPros</SidebarHeaderTitle>
                 </SidebarHeader>
+                <SidebarProfile>
+                    <ProfileImage>
+                        <CircleImage />
+                    </ProfileImage>
+                    <ProfileWelcome>
+                        <ProfileWelcomeGreeting>Welcome,</ProfileWelcomeGreeting>
+                        <TokenContext.Consumer>
+                            {({token}) => (
+                                <ProfileWelcomeName>{token.unique_name}</ProfileWelcomeName>
+                            )}
+                        </TokenContext.Consumer>
+                        <ProfileWelcomeName></ProfileWelcomeName>
+                    </ProfileWelcome>
+                </SidebarProfile>
                 <SidebarLinksContainer>
                     {Object.keys(this.props.menuLinks).map((currentKey) => {
                         return (
@@ -158,6 +237,20 @@ export default class Sidebar extends React.Component {
                         );
                     })}
                 </SidebarLinksContainer>
+                <SidebarFooter>
+                    <SidebarFooterButton>
+                        <FontAwesomeIcon icon="info-circle" />
+                    </SidebarFooterButton>
+                    <SidebarFooterButton>
+                        <FontAwesomeIcon icon="sync" />
+                    </SidebarFooterButton>
+                    <SidebarFooterButton>
+                        <FontAwesomeIcon icon="lock" />
+                    </SidebarFooterButton>
+                    <SidebarFooterButton>
+                        <FontAwesomeIcon icon="power-off" />
+                    </SidebarFooterButton>
+                </SidebarFooter>
             </SidebarContainer>
         );  
     }

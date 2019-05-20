@@ -17,8 +17,14 @@ import {
     faInfoCircle,
     faChevronDown,
     faChartLine,
+    faSync,
+    faLock,
+    faPowerOff,
 } from '@fortawesome/free-solid-svg-icons';
 
+library.add(faSync);
+library.add(faLock);
+library.add(faPowerOff);
 library.add(faStroopwafel);
 library.add(faChartPie);
 library.add(faTaxi);
