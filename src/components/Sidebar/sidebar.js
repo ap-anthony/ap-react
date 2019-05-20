@@ -204,7 +204,7 @@ export default class Sidebar extends React.Component {
                         <ProfileWelcomeGreeting>Welcome,</ProfileWelcomeGreeting>
                         <TokenContext.Consumer>
                             {({token}) => (
-                                <ProfileWelcomeName>{token.unique_name}</ProfileWelcomeName>
+                                <ProfileWelcomeName>{token ? token.unique_name : ''}</ProfileWelcomeName>
                             )}
                         </TokenContext.Consumer>
                         <ProfileWelcomeName></ProfileWelcomeName>
@@ -217,8 +217,8 @@ export default class Sidebar extends React.Component {
                                 <SidebarLink onClick={() => this.clickSidebarLink(currentKey)}>
                                     <Icon>
                                         <FontAwesomeIcon icon={
-                                            this.props.menuLinks[currentKey][0].icon ?  this.props.menuLinks[currentKey][0].icon.replace('fa-', '')
-                                                                                    :  'info-circle'
+                                            this.props.menuLinks[currentKey][0] ? this.props.menuLinks[currentKey][0].icon.replace('fa-', '')
+                                                                                :  'info-circle'
                                         } />
                                     </Icon>
                                     {currentKey}
@@ -255,3 +255,7 @@ export default class Sidebar extends React.Component {
         );  
     }
 }
+
+Sidebar.defaultProps = {
+    menuLinks: {}
+};
