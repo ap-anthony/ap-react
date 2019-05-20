@@ -18,7 +18,7 @@ const EndIcon = styled.span`
 const SidebarContainer = styled.div`
     width: 100%;
     height: 100%;
-    overflow-y: hidden;
+    overflow-y: auto;
 `;
 
 const SidebarLinksContainer = styled.div`
