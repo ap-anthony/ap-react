@@ -10,6 +10,8 @@ import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.compact.css';
 import TokenService from './services/token-service';
 
+import './font-awesome-library';
+
 var jwtDecode = require('jwt-decode');
 
 class App extends Component {
@@ -70,7 +72,6 @@ class App extends Component {
                         <Route exact path="/" component={Home}></Route>
                         <Route exact path="/login" component={Login}></Route>
                     </TokenContext.Provider>
-
                 </Router>
             </div>
         );
