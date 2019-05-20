@@ -3,10 +3,6 @@ import styled from 'styled-components';
 
 
 export default class SidebarDropdown extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         const SidebarDropdownList = styled.ul`
