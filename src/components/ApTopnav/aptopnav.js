@@ -1,10 +1,7 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
 
 import styled from 'styled-components';
-import { assets, colors } from '../../theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { assets } from '../../theme';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -93,7 +90,7 @@ export default class ApTopnav extends React.Component {
                     <TopNavButton 
                         onClick={this.toggleCollapse} 
                         icon="fa-bars"
-                        borderLeft={false} />
+                        borderLeft="none" />
                 </TopNavLeft>
                 <TopNavCenter></TopNavCenter>
                 <TopNavRight>
